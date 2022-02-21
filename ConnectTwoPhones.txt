@@ -1,0 +1,59 @@
+Actors:
+•	Caregiver: an adult or other person who wishes to talk to a person who is hard-of-hearing
+•	Hard-of-hearing individual: someone who uses the app to enhance their ability to hear
+
+Template adapted from "Software Engineering" by Kassem A Selah
+
+Name: Connect two phones together (for the first time)
+Created by: Mr. Peterson
+
+Actors involved
+Triggering actor: Caregiver
+Secondary actor: Hard-of-hearing individual
+
+Brief description
+A caregiver connects two phones together so that they can speak directly to someone who is hard-of-hearing.
+
+Triggering Event(s):	Hard-of-hearing person listens for connections
+
+Priority: Moderate
+
+Preconditions
+* Both phones have the app installed and running
+
+Assumptions
+* The phones are close to each other (close enough for a Bluetooth wireless connection)
+
+Flow of events
+1.	Hard-of-hearing person begins listening for connections
+2.	Caregiver initiates a connection
+3.	Caregiver’s app scans for available phones
+4.	Caregiver selects the hard-of-hearing person’s phone
+5.	Hard-of-hearing person accepts the connection request
+6.	Connection is completed
+7.	Caregiver’s voice is routed to the hard-of-hearing person’s app and, from there, to their headphones
+
+Alternative/abnormal flow of events	1. If this is the first time setting up a connection, the app requests Bluetooth the needed permissions
+1.1 If the user does not grant access, the use case ends
+2. Same as 1)
+3. If no compatible phones are discovered, the use case ends
+4. If the expected phone is not found, the caregiver needs to start over to scan again
+5. If the hard-of-hearing person denies the connection request, there is an error message for the caregiver and the use case ends
+6. If the connection fails, the user is notified and returned to the screen they began on
+
+Postconditions
+* The two phones are connected
+* The caregiver’s voice is heard by the hard-of-hearing person through their headphones
+
+Non-functional Requirements
+* The app shall not request Bluetooth wireless permission until the user first attempts to connect two phones
+* The phone-to-phone connection shall provide an error notification when the connection drops
+
+------------
+
+User Stories (capturing what’s above)
+1. As a caregiver, I want to be able to connect my phone to another phone so that I can talk to a person that’s hard-of-hearing through their headphones.
+   a. The app will request wireless permission only when the user first attempts to connect to another phone.
+   b. Notify the user if there is a request fail/timeout/drop.
+2. As a hard-of-hearing person, I want to be able to listen for connections so that my caregiver(s) can connect to my phone and speak to me directly.
+   a. See a) and b) of #1
